@@ -6,8 +6,8 @@
 	<artifactId>bulls-cows-client-appl</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<maven.compiler.source>22</maven.compiler.source>
-		<maven.compiler.target>22</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -21,9 +21,47 @@
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>
-			<groupId>telran.games</groupId>
-			<artifactId>bulls-cows-appl</artifactId>
+			<groupId>telran.view</groupId>
+			<artifactId>cli-view</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<!-- Here come other details
+            ...
+            -->
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>telran.net.games.BullsCowsClientAppl</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<!-- Here come other details
+            ...
+            -->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<!-- put your configurations here -->
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
